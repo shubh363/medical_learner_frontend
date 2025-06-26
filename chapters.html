@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Learner | Chapters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            primary: '#0d9488',
+                            secondary: '#4f46e5',
+                            dark: '#115e59',
+                            light: '#ccfbf1'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+
+<body class="font-[Poppins] bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/medicallearner_logo.png" alt="Medical Learner Logo" width="130"
+                            height="40">
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <!-- Subjects Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="subjects.html">Subjects</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="subjects.html#anatomy"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Anatomy</a>
+                            <a href="subjects.html#physiology"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Physiology</a>
+                            <a href="subjects.html#biochemistry"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Biochemistry</a>
+                            <a href="subjects.html#pathology"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Pathology</a>
+                            <a href="subjects.html#all-subjects"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">View
+                                All</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapters Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="chapters.html">Chapters</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="chapters.html#general"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">General</a>
+                            <a href="chapters.html#system-wise"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">System-wise</a>
+                            <a href="chapters.html#clinical"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Clinical</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">Browse
+                                All</a>
+                        </div>
+                    </div>
+
+                    <!-- Topics Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="topics.html">Topics</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="topics.html#basic-sciences"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Basic Sciences</a>
+                            <a href="topics.html#clinical-sciences"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Clinical Sciences</a>
+                            <a href="topics.html#recent-advances"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Recent Advances</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">Explore
+                                All</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="text-gray-700 hover:text-medical-primary transition">About Us</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex space-x-4">
+                    <a href="user.html">
+                        <button
+                            class="bg-medical-primary text-white px-6 py-2 rounded-full hover:bg-medical-dark transition flex items-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i> User
+                        </button>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg p-6 flex flex-col hidden md:block">
+            <!-- <div class="mb-8">
+                <a href="index.html">
+                    <img src="./assets/images/medicallearner_logo.png" alt="Medical Learner Logo" width="130" height="40">
+                </a>
+            </div> -->
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark mb-4">Current Subject</h3>
+                <div class="bg-medical-light rounded-lg p-4">
+                    <h4 class="font-medium text-medical-dark flex items-center">
+                        <i class="fas fa-bone mr-2"></i> Anatomy
+                    </h4>
+                    <div class="flex items-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-medical-primary h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                        <span class="text-xs text-gray-600 ml-2">45%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark">Subject Chapters</h3>
+                <div class="mt-4 space-y-2">
+                    <a href="#gross-anatomy" class="flex items-center p-2 rounded-lg hover:bg-medical-light transition">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Gross Anatomy</span>
+                    </a>
+                    <a href="#histology" class="flex items-center p-2 rounded-lg hover:bg-medical-light transition">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Histology</span>
+                    </a>
+                    <a href="#embryology" class="flex items-center p-2 rounded-lg bg-medical-light font-medium">
+                        <i class="fas fa-book-open text-medical-primary mr-3"></i>
+                        <span>Embryology</span>
+                    </a>
+                    <a href="#neuroanatomy" class="flex items-center p-2 rounded-lg hover:bg-medical-light transition">
+                        <i class="far fa-circle text-gray-400 mr-3"></i>
+                        <span>Neuroanatomy</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark">Quick Resources</h3>
+                <div class="mt-4 space-y-2">
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-atlas mr-3"></i> Anatomy Atlas
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-microscope mr-3"></i> Histology Slides
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-question-circle mr-3"></i> Practice Questions
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10">
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <!-- Breadcrumb Navigation -->
+                <nav class="flex mb-6" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html"
+                                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-medical-primary">
+                                <i class="fas fa-home mr-2"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                <a href="subjects.html"
+                                    class="ml-1 text-sm font-medium text-gray-700 hover:text-medical-primary md:ml-2">Subjects</a>
+                            </div>
+                        </li>
+                        <li aria-current="page">
+                            <div class="flex items-center">
+                                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                <span class="ml-1 text-sm font-medium text-medical-primary md:ml-2">Chapters</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="text-3xl font-bold text-medical-dark mb-2">Anatomy Chapters</h1>
+                <p class="text-gray-600 mb-6">Explore comprehensive chapters covering all aspects of human anatomy.
+                    Select a chapter to view detailed topics and learning materials.</p>
+
+                <!-- Search and Filter -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <div class="relative w-full md:w-96">
+                        <input type="text" placeholder="Search chapters..."
+                            class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button
+                            class="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center">
+                            <i class="fas fa-filter mr-2 text-gray-600"></i>
+                            <span>Filter</span>
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center">
+                            <i class="fas fa-sort mr-2 text-gray-600"></i>
+                            <span>Sort</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Current Chapter Focus -->
+                <div id="embryology" class="bg-medical-light rounded-xl p-6 mb-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <h2 class="text-2xl font-semibold text-medical-dark">Embryology</h2>
+                        <div class="flex items-center mt-2 md:mt-0">
+                            <span class="text-sm text-gray-600 mr-2">Completion:</span>
+                            <div class="relative w-8 h-8">
+                                <svg class="progress-ring" width="32" height="32">
+                                    <circle class="progress-ring__circle" stroke="#e5e7eb" stroke-width="3"
+                                        fill="transparent" r="12" cx="16" cy="16" />
+                                    <circle class="progress-ring__circle" stroke="#0d9488" stroke-width="3"
+                                        stroke-dasharray="75.36 75.36" stroke-dashoffset="37.68" fill="transparent"
+                                        r="12" cx="16" cy="16" />
+                                </svg>
+                                <span
+                                    class="absolute inset-0 flex items-center justify-center text-xs font-medium">50%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h3 class="font-medium text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-clock text-medical-primary mr-2"></i> Estimated Time
+                            </h3>
+                            <p class="text-gray-600">8-10 hours</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h3 class="font-medium text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-layer-group text-medical-primary mr-2"></i> Difficulty
+                            </h3>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <h3 class="font-medium text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-bookmark text-medical-primary mr-2"></i> Topics
+                            </h3>
+                            <p class="text-gray-600">12 topics, 5 quizzes</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-lg font-medium text-medical-dark mb-3">Chapter Description</h3>
+                        <p class="text-gray-700 mb-4">
+                            Embryology is the branch of biology that studies the prenatal development of gametes,
+                            fertilization, and development of embryos and fetuses. This chapter covers human development
+                            from zygote to fetus, including all critical stages of organogenesis and developmental
+                            abnormalities.
+                        </p>
+                        <p class="text-gray-700">
+                            Key areas include gametogenesis, fertilization, implantation, embryonic folding, development
+                            of organ systems, fetal membranes, and clinical correlations with congenital anomalies.
+                            Understanding embryology is crucial for comprehending adult anatomy and many pathological
+                            conditions.
+                        </p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-lg font-medium text-medical-dark mb-3">Learning Objectives</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Describe the process of gametogenesis and early embryonic development</li>
+                            <li>Understand the formation of germ layers and their derivatives</li>
+                            <li>Trace the development of major organ systems</li>
+                            <li>Identify critical periods of development and potential teratogenic effects</li>
+                            <li>Correlate embryological development with congenital anomalies</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <button
+                            class="bg-medical-primary text-white px-6 py-2 rounded-lg hover:bg-medical-dark transition flex items-center">
+                            <i class="fas fa-play mr-2"></i> Continue Learning
+                        </button>
+                    </div>
+                </div>
+
+                <!-- All Chapters in This Subject -->
+                <h2 class="text-2xl font-semibold text-medical-dark mb-4">All Chapters in Anatomy</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gross Anatomy Card -->
+                    <div id="gross-anatomy"
+                        class="chapter-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-bone text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Gross Anatomy</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Study of anatomical structures visible to the naked
+                                eye, including regional and systemic approaches.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-sm text-gray-500">Completed</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Review</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Histology Card -->
+                    <div id="histology"
+                        class="chapter-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-microscope text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Histology</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Microscopic study of tissues and cells, their
+                                structure, arrangement, and functional correlations.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-sm text-gray-500">Completed</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Review</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embryology Card -->
+                    <div
+                        class="chapter-card bg-white border-2 border-medical-primary rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-baby text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Embryology</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Development of human embryo from fertilization to
+                                birth, including congenital anomalies.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="fas fa-book-open text-medical-primary mr-2"></i>
+                                    <span class="text-sm text-gray-500">In Progress</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neuroanatomy Card -->
+                    <div id="neuroanatomy"
+                        class="chapter-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-brain text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Neuroanatomy</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Structure and organization of the nervous system,
+                                including brain, spinal cord, and peripheral nerves.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="far fa-circle text-gray-400 mr-2"></i>
+                                    <span class="text-sm text-gray-500">Not Started</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Start</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Radiological Anatomy Card -->
+                    <div
+                        class="chapter-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-x-ray text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Radiological Anatomy</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Anatomical structures as visualized through various
+                                imaging modalities (X-ray, CT, MRI).</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="far fa-circle text-gray-400 mr-2"></i>
+                                    <span class="text-sm text-gray-500">Not Started</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Start</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Anatomy Card -->
+                    <div
+                        class="chapter-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-stethoscope text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Clinical Anatomy</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Application of anatomical knowledge to clinical
+                                practice and surgical procedures.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <i class="far fa-circle text-gray-400 mr-2"></i>
+                                    <span class="text-sm text-gray-500">Not Started</span>
+                                </div>
+                                <a href="#" class="text-sm text-medical-primary hover:underline">Start</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Resources -->
+                <h2 class="text-2xl font-semibold text-medical-dark mt-12 mb-4">Anatomy Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-3 rounded-full mr-3">
+                                    <i class="fas fa-atlas text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">3D Anatomy Atlas</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Interactive 3D models of human anatomy with detailed
+                                structures and clinical correlations.</p>
+                            <a href="#" class="text-sm text-medical-primary hover:underline flex items-center">
+                                Explore Atlas <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-3 rounded-full mr-3">
+                                    <i class="fas fa-video text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Dissection Videos</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Step-by-step cadaveric dissection videos with expert
+                                commentary and annotations.</p>
+                            <a href="#" class="text-sm text-medical-primary hover:underline flex items-center">
+                                Watch Videos <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-3 rounded-full mr-3">
+                                    <i class="fas fa-question-circle text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Anatomy QBank</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">500+ practice questions with detailed explanations and
+                                high-yield facts.</p>
+                            <a href="#" class="text-sm text-medical-primary hover:underline flex items-center">
+                                Start Practicing <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-medical-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Medical Learner</h3>
+                    <p class="text-gray-300 text-sm">Comprehensive medical education platform for students and
+                        professionals.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Subjects</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Chapters</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Topics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Video Lectures</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Study Notes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Question Bank</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Flashcards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-envelope mr-2"></i>
+                            contact@medicallearner.com</li>
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-phone mr-2"></i> +91
+                            9999888222</li>
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>
+                            Viman Nagar, Pune City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2023 Medical Learner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for progress rings (can be enhanced further)
+        document.addEventListener('DOMContentLoaded', function () {
+            const circles = document.querySelectorAll('.progress-ring__circle');
+            const radius = 12;
+            const circumference = 2 * Math.PI * radius;
+
+            circles.forEach(circle => {
+                circle.style.strokeDasharray = circumference;
+                circle.style.strokeDashoffset = circumference;
+            });
+        });
+    </script>
+</body>
+
+</html>

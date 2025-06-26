@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editable User Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-cyan-100 min-h-screen flex items-center justify-center font-sans">
+
+  <!-- Profile Card -->
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl">
+
+    <!-- Profile Header -->
+    <div class="flex items-center space-x-4 mb-6">
+      <img src="https://img.icons8.com/color/96/user-male-circle--v1.png" alt="User Avatar"
+        class="w-20 h-20 rounded-full">
+      <div>
+        <h2 id="displayName" class="text-2xl font-bold text-blue-700">John Doe</h2>
+        <p class="text-gray-600">Medical Student</p>
+      </div>
+    </div>
+
+    <!-- Editable Form -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700" id="userForm">
+      <div>
+        <label class="text-sm font-semibold">Full Name</label>
+        <input type="text" id="name" class="edit-field bg-gray-100 rounded-md px-3 py-2 mt-1 w-full" disabled
+          value="John Doe" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Email</label>
+        <input type="email" id="email" class="edit-field bg-gray-100 rounded-md px-3 py-2 mt-1 w-full" disabled
+          value="john.doe@example.com" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Phone</label>
+        <input type="tel" id="phone" class="edit-field bg-gray-100 rounded-md px-3 py-2 mt-1 w-full" disabled
+          value="+91 98765 43210" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Date of Birth</label>
+        <input type="text" id="dob" class="edit-field bg-gray-100 rounded-md px-3 py-2 mt-1 w-full" disabled
+          value="15 Aug 1998" />
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-sm font-semibold">Location</label>
+        <input type="text" id="location" class="edit-field bg-gray-100 rounded-md px-3 py-2 mt-1 w-full" disabled
+          value="Pune, India" />
+      </div>
+      <div class="sm:col-span-2">
+        <label class="text-sm font-semibold">About</label>
+        <textarea id="about" class="edit-field bg-gray-100 rounded-md px-3 py-3 mt-1 w-full"
+          disabled>Passionate medical learner currently in the final year of MBBS. Interested in surgery and digital health.</textarea>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between mt-6 flex-wrap items-center">
+      <!-- Left side: Return Button -->
+      <a href="subjects.html"
+        class="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition flex items-center mb-2 sm:mb-0">
+        <i class="fas fa-arrow-left mr-2"></i> Return to Learning
+      </a>
+
+      <!-- Right side: Edit / Save -->
+      <div class="flex space-x-3">
+        <button id="editBtn" onclick="enableEdit()"
+          class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Edit Profile</button>
+        <button id="saveBtn" onclick="saveData()"
+          class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition hidden">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Styles -->
+  <style>
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: #16a34a;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      animation: fadein 0.5s ease, fadeout 0.5s ease 2s;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeout {
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+  </style>
+
+  <!-- JS for Edit/Save Logic -->
+  <script>
+    function enableEdit() {
+      document.querySelectorAll('.edit-field').forEach(field => field.removeAttribute('disabled'));
+      document.getElementById('saveBtn').classList.remove('hidden');
+      document.getElementById('editBtn').classList.add('hidden');
+    }
+
+    function saveData() {
+      document.querySelectorAll('.edit-field').forEach(field => field.setAttribute('disabled', true));
+      document.getElementById('saveBtn').classList.add('hidden');
+      document.getElementById('editBtn').classList.remove('hidden');
+
+      const newName = document.getElementById('name').value;
+      document.getElementById('displayName').innerText = newName;
+
+      showToast("✅ Changes saved!");
+    }
+
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerText = message;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 2500);
+    }
+  </script>
+
+</body>
+
+</html>

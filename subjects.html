@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Learner | Subjects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            primary: '#0d9488',
+                            secondary: '#4f46e5',
+                            dark: '#115e59',
+                            light: '#ccfbf1'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display : inline-block ;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-[Poppins] bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/medicallearner_logo.png" alt="Medical Learner Logo" width="130"
+                            height="40">
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <!-- Subjects Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="subjects.html">Subjects</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="subjects.html#anatomy"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Anatomy</a>
+                            <a href="subjects.html#physiology"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Physiology</a>
+                            <a href="subjects.html#biochemistry"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Biochemistry</a>
+                            <a href="subjects.html#pathology"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Pathology</a>
+                            <a href="subjects.html#all-subjects"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">View
+                                All</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapters Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="chapters.html">Chapters</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="chapters.html#general"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">General</a>
+                            <a href="chapters.html#system-wise"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">System-wise</a>
+                            <a href="chapters.html#clinical"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Clinical</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">Browse
+                                All</a>
+                        </div>
+                    </div>
+
+                    <!-- Topics Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="text-gray-700 hover:text-medical-primary transition flex items-center">
+                            <a href="topics.html">Topics</a>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu hidden absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="topics.html#basic-sciences"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Basic Sciences</a>
+                            <a href="topics.html#clinical-sciences"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Clinical Sciences</a>
+                            <a href="topics.html#recent-advances"
+                                class="block px-4 py-2 text-gray-700 hover:bg-medical-light">Recent Advances</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-medical-primary font-medium hover:bg-medical-light">Explore
+                                All</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="text-gray-700 hover:text-medical-primary transition">About Us</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex space-x-4">
+                    <a href="user.html">
+                        <button
+                            class="bg-medical-primary text-white px-6 py-2 rounded-full hover:bg-medical-dark transition flex items-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i> User
+                        </button>
+                    </a>
+                    <!-- <a href="/register">
+                        <button
+                            class="bg-medical-secondary text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition flex items-center">
+                            <i class="fas fa-user-plus mr-2"></i> Register
+                        </button>
+                    </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg p-6 flex flex-col hidden md:block">
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark">Quick Links</h3>
+                <div class="mt-4 space-y-2">
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-book-medical mr-3"></i> My Study Plan
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-chart-line mr-3"></i> Progress
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark">Subjects</h3>
+                <div class="mt-4 space-y-2">
+                    <a href="subjects.html#anatomy" class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-bone mr-3"></i> Anatomy
+                    </a>
+                    <a href="subjects.html#physiology"
+                        class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-heartbeat mr-3"></i> Physiology
+                    </a>
+                    <a href="subjects.html#biochemistry"
+                        class="flex items-center text-gray-700 hover:text-medical-primary">
+                        <i class="fas fa-dna mr-3"></i> Biochemistry
+                    </a>
+                    <a href="subjects.html#all-subjects" class="flex items-center text-medical-primary font-medium">
+                        <i class="fas fa-ellipsis-h mr-3"></i> View All
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-medical-dark">Recent Activities</h3>
+                <div class="mt-4 space-y-3">
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i> Completed Pathology Chapter 3
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <i class="fas fa-book-open text-blue-500 mr-2"></i> Started Pharmacology Section
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10">
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-medical-dark mb-2">Medical Subjects</h1>
+                <p class="text-gray-600 mb-6">Explore our comprehensive collection of medical subjects. Click on any
+                    subject to view detailed chapters and topics.</p>
+
+                <!-- Search Bar -->
+                <div class="relative mb-8">
+                    <input type="text" placeholder="Search subjects..."
+                        class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                </div>
+
+                <!-- Popular Subjects -->
+                <h2 class="text-xl font-semibold text-medical-dark mb-4">Popular Subjects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <!-- Anatomy Card -->
+                    <a href="subjects.html#anatomy" id="anatomy"
+                        class="subject-card block bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-bone text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Anatomy</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Study of the structure of organisms and their parts.
+                                Includes gross, microscopic, and developmental anatomy.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-book-open mr-1"></i> 24 Chapters</span>
+                                <span><i class="fas fa-file-alt mr-1"></i> 150 Topics</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Physiology Card -->
+                    <a href="subjects.html#physiology" id="physiology"
+                        class="subject-card block bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-heartbeat text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Physiology</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Study of normal functions and mechanisms in a living
+                                system. Focuses on how organisms, organ systems, and cells carry out chemical and
+                                physical functions.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-book-open mr-1"></i> 18 Chapters</span>
+                                <span><i class="fas fa-file-alt mr-1"></i> 120 Topics</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Pathology Card -->
+                    <a href="subjects.html#pathology" id="pathology"
+                        class="subject-card block bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                        <div class="p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-medical-light p-2 rounded-full mr-3">
+                                    <i class="fas fa-microscope text-medical-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-800">Pathology</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Study of the causes and effects of disease or injury.
+                                Includes general and systemic pathology with clinical correlations.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-book-open mr-1"></i> 22 Chapters</span>
+                                <span><i class="fas fa-file-alt mr-1"></i> 140 Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- All Subjects -->
+                <h2 class="text-xl font-semibold text-medical-dark mb-4" id="all-subjects">All Medical Subjects</h2>
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-bone text-medical-primary mr-3"></i>
+                            <span>Anatomy</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-heartbeat text-medical-primary mr-3"></i>
+                            <span>Physiology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-dna text-medical-primary mr-3"></i>
+                            <span>Biochemistry</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-microscope text-medical-primary mr-3"></i>
+                            <span>Pathology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-pills text-medical-primary mr-3"></i>
+                            <span>Pharmacology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-bacteria text-medical-primary mr-3"></i>
+                            <span>Microbiology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-skull text-medical-primary mr-3"></i>
+                            <span>Forensic Medicine</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-users text-medical-primary mr-3"></i>
+                            <span>Community Medicine</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-scalpel text-medical-primary mr-3"></i>
+                            <span>Surgery</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-stethoscope text-medical-primary mr-3"></i>
+                            <span>Internal Medicine</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-baby text-medical-primary mr-3"></i>
+                            <span>Pediatrics</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-female text-medical-primary mr-3"></i>
+                            <span>Obstetrics & Gynecology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-brain text-medical-primary mr-3"></i>
+                            <span>Psychiatry</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-x-ray text-medical-primary mr-3"></i>
+                            <span>Radiology</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 hover:bg-medical-light rounded-lg transition">
+                            <i class="fas fa-allergies text-medical-primary mr-3"></i>
+                            <span>Dermatology</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-xl font-semibold text-medical-dark mb-4">Additional Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-medical-primary transition">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-video text-medical-primary text-xl mr-3"></i>
+                            <h3 class="font-medium">Video Lectures</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Comprehensive video lectures covering all major subjects and
+                            topics.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-medical-primary transition">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-file-pdf text-medical-primary text-xl mr-3"></i>
+                            <h3 class="font-medium">Study Notes</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Downloadable PDF notes compiled by top medical educators.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-medical-primary transition">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-question-circle text-medical-primary text-xl mr-3"></i>
+                            <h3 class="font-medium">QBank</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Practice questions with detailed explanations for exam
+                            preparation.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-medical-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Medical Learner</h3>
+                    <p class="text-gray-300 text-sm">Comprehensive medical education platform for students and
+                        professionals.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Subjects</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Chapters</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Topics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Video Lectures</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Study Notes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Question Bank</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white text-sm">Flashcards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-envelope mr-2"></i>
+                            contact@medicallearner.com</li>
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-phone mr-2"></i> +91 9999888222
+                            </li>
+                        <li class="flex items-center text-gray-300 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>
+                            Viman Nagar, Pune City.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2023 Medical Learner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+</html>

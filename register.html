@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Professional Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medical: {
+              primary: '#0d6e7a',
+              secondary: '#0e9aa7',
+              dark: '#0a4d5a',
+              accent: '#3a86ff',
+              light: '#d6f0f3'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    .form-container {
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(13, 110, 122, 0.1);
+    }
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, theme('colors.medical.primary'), theme('colors.medical.accent'));
+    }
+    .medical-icon {
+      transition: all 0.3s ease;
+    }
+    .medical-icon:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 4px 6px rgba(13, 110, 122, 0.2));
+    }
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 42px;
+      color: theme('colors.medical.primary');
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <div class="form-container relative p-8 rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden">
+    <!-- Medical decorative elements -->
+    <i class="fas fa-heartbeat absolute -right-10 -top-10 text-gray-100 text-6xl"></i>
+    <i class="fas fa-stethoscope absolute -left-10 -bottom-10 text-gray-100 text-6xl"></i>
+    
+    <!-- Medical header -->
+    <div class="flex flex-col items-center mb-8">
+      <div class="flex items-center justify-center mb-4">
+        <img src="https://img.icons8.com/color/96/medical-doctor.png" alt="Medical Icon" class="w-12 h-12 medical-icon mr-3">
+        <h2 class="text-3xl font-bold text-medical-dark">Healthcare Professional Registration</h2>
+      </div>
+      <p class="text-gray-600 text-center">Join our network of medical professionals and students</p>
+    </div>
+
+    <form id="registerForm" class="space-y-6">
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Full Name</label>
+          <i class="fas fa-user input-icon"></i>
+          <input type="text" name="name" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Email</label>
+          <i class="fas fa-envelope input-icon"></i>
+          <input type="email" name="email" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Phone</label>
+          <i class="fas fa-phone input-icon"></i>
+          <input type="tel" name="phone" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Date of Birth</label>
+          <i class="fas fa-calendar-day input-icon"></i>
+          <input type="date" name="dob" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Gender</label>
+          <i class="fas fa-venus-mars input-icon"></i>
+          <select name="gender" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent appearance-none" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Professional Role</label>
+          <i class="fas fa-user-tag input-icon"></i>
+          <select name="role" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent appearance-none" required>
+            <option value="">Select Role</option>
+            <option value="Medical Student">Medical Student</option>
+            <option value="Resident">Resident</option>
+            <option value="Physician">Physician</option>
+            <option value="Nurse">Nurse</option>
+            <option value="Researcher">Researcher</option>
+            <option value="Administrator">Administrator</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="relative">
+        <label class="block text-sm font-semibold text-medical-dark mb-1">Institution/Organization</label>
+        <i class="fas fa-hospital input-icon"></i>
+        <input type="text" name="institution" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" name="password" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-semibold text-medical-dark mb-1">Confirm Password</label>
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" name="confirm_password" class="w-full px-4 py-3 pl-11 border rounded-lg focus:outline-none focus:ring-2 focus:ring-medical-primary focus:border-transparent" required />
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-medical-primary focus:ring-medical-primary border-gray-300 rounded" required>
+        <label for="terms" class="ml-2 block text-sm text-gray-600">
+          I agree to the <a href="#" class="text-medical-primary hover:underline">Terms of Service</a> and <a href="#" class="text-medical-primary hover:underline">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full bg-gradient-to-r from-medical-primary to-medical-accent text-white py-3 rounded-lg hover:opacity-90 transition-all font-semibold shadow-md text-lg">
+        <i class="fas fa-user-plus mr-2"></i> Register Now
+      </button>
+
+      <p class="text-center text-sm text-gray-600 mt-4">
+        Already have an account?
+        <a href="login.html" class="text-medical-primary font-medium hover:underline">Login here</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- JS for enhanced client-side validation -->
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      const password = this.password.value;
+      const confirmPassword = this.confirm_password.value;
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert("Passwords do not match!");
+        return;
+      }
+      
+      if (password.length < 8) {
+        e.preventDefault();
+        alert("Password must be at least 8 characters long!");
+        return;
+      }
+      
+      if (!this.terms.checked) {
+        e.preventDefault();
+        alert("You must agree to the terms and conditions!");
+        return;
+      }
+    });
+  </script>
+
+</body>
+</html>

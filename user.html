@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-cyan-100 min-h-screen flex items-center justify-center font-sans">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl">
+    <!-- Profile Header -->
+    <div class="flex items-center space-x-4 mb-6">
+      <img src="https://img.icons8.com/color/96/user-male-circle--v1.png" alt="User Avatar" class="w-20 h-20 rounded-full">
+      <div>
+        <h2 class="text-2xl font-bold text-blue-700">John Doe</h2>
+        <p class="text-gray-600">Medical Student</p>
+      </div>
+    </div>
+
+    <!-- Information Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
+      <div>
+        <p class="text-sm font-semibold">Email</p>
+        <p class="bg-gray-100 rounded-md px-3 py-2 mt-1">john.doe@example.com</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold">Phone</p>
+        <p class="bg-gray-100 rounded-md px-3 py-2 mt-1">+91 98765 43210</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold">Date of Birth</p>
+        <p class="bg-gray-100 rounded-md px-3 py-2 mt-1">15 Aug 1998</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold">Location</p>
+        <p class="bg-gray-100 rounded-md px-3 py-2 mt-1">Pune, India</p>
+      </div>
+      <div class="sm:col-span-2">
+        <p class="text-sm font-semibold">About</p>
+        <p class="bg-gray-100 rounded-md px-3 py-3 mt-1">
+          Passionate medical learner currently in the final year of MBBS. Interested in surgery and digital health.
+        </p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+<div class="flex justify-end mt-6 space-x-3">
+ <a href="subjects.html" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition inline-block">
+  Return to Learning
+</a>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Edit Profile</button>
+</div>
+
+
+</body>
+</html>
